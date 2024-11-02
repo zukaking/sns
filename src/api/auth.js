@@ -15,21 +15,14 @@ export default {
   
   detect_face_lambda: () => {
 
-    /*let conf = {
-      headers: {
-        'x-api-key': ''
-      },
-    };*/
-
     config.method = 'get'
     config.url = '/dev/test'
     config.headers = {
-      'Access-Control-Allow-Origin' : '*',
-      'x-api-key': ''
+      'x-api-key': process.env.VUE_APP_API_KEY
     }
-    console.log(config)
     return axios.request(config)
       .then((res) => {
+        console.log(res)
         return res
       })
       .catch(error => { throw error })
